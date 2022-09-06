@@ -35,8 +35,11 @@ enet_host_set_using_new_packet(host, 1);
 
 For the full code, check: [test.c](https://github.com/zKevz/enet-socks5/blob/main/test.c)
 
+# DISCLAIMER
+The Implementation released by playingoDEERUX is not by him and is discredited, proxyrack has made it for him due to the customer potential policy. Do not credit him for work that he has not done!
+
 # Credits
-All credits and rights belongs to the author of [enet](https://github.com/lsalzman/enet) library [Lee Salzman](https://github.com/lsalzman)
+- All credits and rights belongs to the author of [enet](https://github.com/lsalzman/enet) library [Lee Salzman](https://github.com/lsalzman)
 
 Other notable people:
 - [Abood](https://github.com/AboodTBR)
