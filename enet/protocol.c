@@ -1626,8 +1626,8 @@ enet_protocol_send_outgoing_commands (ENetHost * host, ENetEvent * event, int ch
     enet_uint8 usingNewPacket = host -> usingNewPacket && host -> address.port == 0;
     size_t headerSize = usingNewPacket ? sizeof (ENetProtocolHeaderUbisoft) : sizeof (ENetProtocolHeader);
 
-    enet_uint8 headerData [sizeof(ENetSocks5UDP) + headerSize + sizeof (enet_uint32)];
-    memset(headerData, 0, sizeof(ENetSocks5UDP) + headerSize + sizeof (enet_uint32));
+    enet_uint8 headerData [sizeof(ENetSocks5UDP) + sizeof (ENetProtocolHeaderUbisoft) + sizeof (enet_uint32)];
+    memset(headerData, 0, sizeof(ENetSocks5UDP) + sizeof (ENetProtocolHeaderUbisoft) + sizeof (enet_uint32));
 
     ENetProtocolHeader * header = (ENetProtocolHeader *) headerData;
     ENetProtocolHeaderUbisoft * ubisoftHeader = (ENetProtocolHeaderUbisoft *) headerData;
@@ -1774,7 +1774,7 @@ enet_protocol_send_outgoing_commands (ENetHost * host, ENetEvent * event, int ch
 
         if (host -> socks5Socket != ENET_SOCKET_NULL)
         {
-            memcpy(host -> buffers -> data + sizeof (ENetSocks5UDP), 
+            memcpy((enet_uint8 * ) host -> buffers -> data + sizeof (ENetSocks5UDP), 
                    host -> buffers -> data, 
                   host -> buffers -> dataLength);
 
